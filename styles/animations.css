@@ -1,59 +1,95 @@
-.like-icon:hover .core {
-  fill: var(--animation-fill-color);
-  transition-delay: 0s;
-}
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
 
-.like-icon:hover .main-body {
-  fill: var(--animation-fill-color);
-  transition-delay: .05s;
-}
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
 
-.like-icon:active .core,
-.like-icon.is-liked .core {
-  fill: var(--animation-fill-color);
-  transition-delay: 0s;
-}
-
-.like-icon:active .main-body,
-.like-icon.is-liked .main-body {
-  fill: var(--animation-fill-color);
-  transition-delay: .05s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--animation-fill-color);
-  transition: fill .3s linear .06s;
-}
-
-.like-icon.is-liked .heart {
-  animation: heart-scale .3s ease-in .1s 1;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks .3s ease-in .3s 1;
-}
-
+*/
+/* Кейфреймы для анимаций */
 @keyframes heart-scale {
-  from {
-    transform: scale(1);
+  0% {
+    transform-origin: center;
+    scale: 1;
   }
-
-  50% {
-    transform: scale(1.25);
-  }
-
-  to {
-    transform: scale(1);
+  100% {
+    transform-origin: center;
+    scale: 1.25;
   }
 }
 
 @keyframes sparks {
-  0%,
-  100% {
+  0% {
     opacity: 0;
   }
-
-  50% {
+  100% {
     opacity: 1;
   }
+}
+
+/* Состояния иконки сердца */
+
+/* Hover - заливка сердцевины и основного тела */
+@media ((hover:hover) and (pointer:fine)) {
+  .like-icon:hover .core {
+    fill: var(--main-color);
+    transition: fill 0.3s linear;
+  }
+  
+  .like-icon:hover .main-body {
+    fill: var(--main-color);
+    transition: fill 0.3s 0.05s linear;
+  }
+}
+
+/* Обратный hover (когда уводим курсор) */
+.like-icon .core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .main-body {
+  transition: fill 0.3s linear;
+}
+
+/* Active - зажатие кнопки */
+.like-icon:active .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/* Состояние is-liked (после клика) */
+.like-icon.is-liked .core {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s 0.1s ease-in;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in;
+}
+
+/* Возврат контура обратно */
+.like-icon:not(.is-liked) .contour {
+  transition: fill 0.1s linear;
 }
