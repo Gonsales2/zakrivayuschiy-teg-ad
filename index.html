@@ -251,7 +251,9 @@
         <svg class="save-button__icon" viewBox="0 0 21 21" aria-hidden="true">
           <use href="./svg/icons.svg#floppy"></use>
         </svg>
-        <span class="button__text">Сохранить на память</span>
+        <button class="button" type="button" id="save-button">
+          <span class="button__text">Сохранить на память</span>
+        </button>
       </button>
     </footer>
   </main>
@@ -262,9 +264,11 @@
       </svg>
       <p class="dialog__text">Всё̈ запомнено.<br>Продолжай в том же духе!</p>
     </div>
-    <button class="button dialog__button" type="button" id="close-dialog">
-      <span class="button__text">ОК</span>
-    </button>
+    <form method="dialog" class="dialog__form">
+      <button class="button dialog__button" type="submit">
+        <span class="button__text">ОК</span>
+      </button>
+    </form>
   </dialog>
   <script src="./scripts/like.js"></script>
 </body>

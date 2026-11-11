@@ -9,6 +9,10 @@
   background-attachment: fixed;
 }
 
+.dialog__form {
+  inline-size: 100%;
+}
+
 .content-width {
   inline-size: var(--page-width);
   margin-inline: auto;
