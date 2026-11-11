@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
 }
@@ -15,53 +19,30 @@ body {
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li {
+p {
   margin: 0;
-  padding: 0;
 }
 
-a {
+button {
   color: inherit;
+  font: inherit;
 }
 
-button,
-input {
-  color: currentColor;
-  font-family: inherit;
-  font-size: inherit;
+button:focus {
+  outline: none;
 }
 
-ul,
-ol {
-  list-style: none;
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
-}
-
-
-html { 
-  scroll-behavior: smooth; 
-}
-
-
-button:focus { 
-  outline: none; 
-}
-button:focus-visible { 
-  outline: 2px solid currentColor; 
-  outline-offset: 3px; 
 }
