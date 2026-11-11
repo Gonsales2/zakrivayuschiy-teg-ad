@@ -4,25 +4,17 @@
     --accent-font: 'PressStart2P', sans-serif;
     --main-font-weight: 400;
     --title-font-weight: 700;
-    
     --content-width: clamp(375px, 90%, 700px);
     --card-width: clamp(375px, 100%, 696px);
-
     --background-image-lines: #d3d3d3;
     --background-gradient-start: #e7e7e7;
     --background-gradient-end: #1a1a1a;
-
     --background-color: #ffffff;
     --main-color: #000000;
     --heart-fill-color: #FF0000;
     --text-stroke-color: #ffffff;
-    
-    /* Границы */
     --border: 2px solid var(--main-color);
-    
-    /* Blend mode */
     --mix-blend-color: var(--background-color);
-
     --page-background: 
       repeating-linear-gradient(to right, var(--background-image-lines) 0 2px, transparent 2px 4px),
       repeating-linear-gradient(to bottom, var(--background-image-lines) 0 2px, transparent 2px 4px),

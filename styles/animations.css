@@ -9,7 +9,6 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-/* Кейфреймы для анимаций */
 @keyframes heart-scale {
   0% {
     transform-origin: center;
@@ -30,9 +29,6 @@
   }
 }
 
-/* Состояния иконки сердца */
-
-/* Hover - заливка сердцевины и основного тела */
 @media ((hover:hover) and (pointer:fine)) {
   .like-icon:hover .core {
     fill: var(--main-color);
@@ -45,7 +41,6 @@
   }
 }
 
-/* Обратный hover (когда уводим курсор) */
 .like-icon .core {
   transition: fill 0.3s 0.03s linear;
 }
@@ -54,7 +49,6 @@
   transition: fill 0.3s linear;
 }
 
-/* Active - зажатие кнопки */
 .like-icon:active .core {
   fill: var(--heart-fill-color);
   transition: fill 0.3s linear;
@@ -65,7 +59,6 @@
   transition: fill 0.3s 0.05s linear;
 }
 
-/* Состояние is-liked (после клика) */
 .like-icon.is-liked .core {
   fill: var(--heart-fill-color);
   transition: fill 0.3s linear;
@@ -89,7 +82,6 @@
   animation: sparks 0.3s 0.3s ease-in;
 }
 
-/* Возврат контура обратно */
 .like-icon:not(.is-liked) .contour {
   transition: fill 0.1s linear;
 }

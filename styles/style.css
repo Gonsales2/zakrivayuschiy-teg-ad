@@ -11,22 +11,22 @@
 */
 
 .page {
-  font-family: var(--main-font);
-  font-variation-settings: 'wght' var(--main-font-weight);
   min-inline-size: 320px;
-  min-block-size: 100dvh;
-  color: var(--main-color);
-  background-color: var(--background-color);
+  min-block-size: 100dvb;
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' 400;
+  background-color: #fff;
   background-image: var(--page-background);
-  background-size: 4px 4px, 4px 4px, cover;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 100dvb;
 }
 
 .dialog {
   display: none;
 }
 
-/* Шапка */
 .header {
   margin-top: 100px;
   margin-inline: auto;
@@ -67,7 +67,6 @@
   font-size: clamp(14px, 1.4375rem, 2.1vw);
 }
 
-/* Основной контент */
 .main {
   margin: auto;
   width: var(--content-width);
@@ -76,7 +75,6 @@
   justify-items: center;
 }
 
-/* Карточка */
 .card {
   background-color: var(--background-color);
   border: var(--border);
@@ -108,7 +106,6 @@
   display: block;
 }
 
-/* Лейбл на изображении */
 .watermark {
   position: absolute;
   top: clamp(25px, 90%, 27px);
@@ -153,7 +150,6 @@
   align-items: center;
 }
 
-/* Кнопки */
 .button {
   padding: 0;
   background-color: transparent;
@@ -198,7 +194,6 @@
   z-index: 1;
 }
 
-/* Кнопка с сердцем */
 .card__icon-button {
   padding: 0;
   background-color: transparent;
@@ -217,14 +212,12 @@
   border-color: var(--main-color);
 }
 
-/* Кнопка Like */
 .card__like-button {
   width: 130px;
   height: 38px;
   border-radius: 0;
 }
 
-/* Иконка сердца */
 .like-icon {
   display: block;
   width: 35px;
@@ -251,18 +244,18 @@
   transition: fill 0.1s linear;
 }
 
-/* Кнопка сохранения */
 .save-button {
-  margin: auto;
-  width: 335px;
-  height: 51px;
-  background-color: var(--background-color);
+  box-sizing: border-box;
+  height: 54px;
+  padding: 17px 17px 17px 20px;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 8px;
+  grid-template-columns: 21px 1fr;
   align-items: center;
-  justify-items: start;
-  border-radius: 0;
+  justify-content: start;
+  gap: 8px;
+  background-color: var(--background-color);
+  border: var(--border);
+  margin: auto;
   margin-bottom: 103px;
 }
 
@@ -270,12 +263,9 @@
 .save-icon {
   width: 21px;
   height: 21px;
-  color: var(--mix-blend-color);
-  mix-blend-mode: difference;
   display: block;
 }
 
-/* Модальное окно */
 .dialog[open] {
   width: 353px;
   height: 191px;
@@ -302,8 +292,8 @@
 
 .dialog__icon {
   color: var(--main-color);
-  width: 42px;
-  height: 42px;
+  width: 39px;
+  height: 39px;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
 }
@@ -312,11 +302,14 @@
   color: var(--main-color);
   font-family: var(--accent-font);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   text-transform: uppercase;
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   margin: 0;
+  width: 234px;
+  height: 63px;
+  overflow-wrap: break-word;
 }
 
 .button-form {
@@ -331,7 +324,6 @@
   border-radius: 0;
 }
 
-/* Фильтры для изображений карточек */
 .card:nth-child(2) .card__image {
   filter: saturate(0.2);
 }
@@ -360,45 +352,48 @@
   filter: hue-rotate(90deg) blur(2px) opacity(0.7) brightness(0.6);
 }
 
-/* Ховер эффекты */
 @media ((hover:hover) and (pointer:fine)) {
   .button:hover::before {
     transform: scaleX(1);
   }
 }
 
-/* Адаптивность для мобильных */
 @media (width <= 375px) {
-  .header {
-    width: 100%;
-    margin-inline: 0;
-  }
-  
-  .main {
-    width: 100%;
-    margin-inline: 0;
-  }
-  
+  .header,
+  .main,
   .card {
     width: 100%;
   }
-  
-  .save-button {
-    grid-template-columns: auto 1fr;
-    justify-items: start;
+
+  .header,
+  .main {
+    margin-inline: 0;
   }
-  
+
+  .save-button {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 17px 39px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 28px auto;
+    justify-items: center;
+    align-items: center;
+    gap: 6px;
+  }
+
   .save-icon {
     width: 28px;
     height: 28px;
   }
-  
+
   .dialog[open] {
     width: 341px;
     height: 195px;
     padding-inline: 20px;
   }
-  
+
   .dialog__button {
     width: 100%;
   }
