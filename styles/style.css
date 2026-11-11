@@ -22,6 +22,10 @@
   background-attachment: fixed;
 }
 
+.dialog {
+  display: none;
+}
+
 /* Шапка */
 .header {
   margin-top: 100px;

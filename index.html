@@ -247,28 +247,32 @@
       </article>
 
       <!-- Кнопка сохранения -->
-      <button class="save-button button" type="button" onclick="window['save-dialog'].showModal()">
-        <svg class="save-icon" viewBox="0 0 21 21">
-          <use href="./svg/floppy.svg" />
+      <button class="save-button button" type="button" id="save-button">
+        <svg class="save-icon" viewBox="0 0 29 29" aria-hidden="true">
+          <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
 
       <!-- Модальное окно -->
-      <dialog class="dialog" id="save-dialog">
-        <svg class="dialog__icon" viewBox="0 0 21 21" aria-hidden="true">
-          <use href="./svg/floppy.svg" />
+      <dialog class="dialog" id="memory-dialog" aria-labelledby="dialog-title">
+        <svg class="dialog__icon" viewBox="0 0 29 29" aria-hidden="true">
+          <use href="./svg/floppy.svg#floppy"></use>
         </svg>
-        <p class="dialog__title">Вставьте
-дискету, чтобы продолжить</p>
+
+        <p class="dialog__title" id="dialog-title">
+          Вставьте дискету, чтобы продолжить
+        </p>
+
         <form method="dialog" class="button-form">
           <button class="dialog__button button" type="submit">
-            <span class="button__text">ок</span>
+            <span class="button__text">ОК</span>
           </button>
         </form>
       </dialog>
 
     </main>
     <script src="./scripts/like.js"></script>
+    <script src="./scripts/dialog.js"></script>
   </body>
 </html>
