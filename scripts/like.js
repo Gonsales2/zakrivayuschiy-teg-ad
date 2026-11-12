@@ -1,14 +1,3 @@
-const popup = document.getElementById('memory-dialog');
-const openButton = document.getElementById('save-button');
-
-if (openButton && popup) {
-  openButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    popup.showModal();
-  });
-}
-
 const likeHeartArray = document.querySelectorAll('.like-icon');
 const likeButtonArray = document.querySelectorAll('.card__like-button');
 const iconButtonArray = document.querySelectorAll('.card__icon-button');
@@ -16,7 +5,6 @@ const iconButtonArray = document.querySelectorAll('.card__icon-button');
 iconButtonArray.forEach((iconButton, index) => {
   iconButton.addEventListener('click', (event) => {
     event.preventDefault();
-    event.stopPropagation();
     toggleIsLiked(likeHeartArray[index], likeButtonArray[index]);
   });
 });
@@ -24,26 +12,30 @@ iconButtonArray.forEach((iconButton, index) => {
 likeButtonArray.forEach((button, index) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
-    event.stopPropagation();
     toggleIsLiked(likeHeartArray[index], button);
   });
 });
 
 function toggleIsLiked(heart, button) {
   if (!heart || !button) return;
-
   heart.classList.toggle('is-liked');
   setButtonText(heart, button);
 }
 
 function setButtonText(heart, button) {
   const textElement = button.querySelector('.button__text');
-
   if (!textElement) return;
-
-  setTimeout(() => {
-    textElement.textContent = heart.classList.contains('is-liked')
-      ? 'Unlike'
-      : 'Like';
+  setTimeout(() => { // Исправьте синтаксис стрелочной функции, если нужно
+     textElement.textContent = heart.classList.contains('is-liked') ? 'Unlike' : 'Like';
   }, 500);
+}
+
+const popup = document.getElementById('memory-dialog');
+const openButton = document.getElementById('save-button');
+
+if (openButton && popup) {
+  openButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    popup.showModal();
+  });
 }
