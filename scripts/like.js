@@ -1,9 +1,6 @@
-// Элементы диалога
 const popup = document.getElementById('memory-dialog');
 const openButton = document.getElementById('save-button');
-const closeButton = document.getElementById('close-dialog');
 
-// Открытие диалога
 if (openButton && popup) {
   openButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -12,21 +9,10 @@ if (openButton && popup) {
   });
 }
 
-// Закрытие диалога
-if (closeButton && popup) {
-  closeButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    popup.close();
-  });
-}
-
-// Элементы лайков
 const likeHeartArray = document.querySelectorAll('.like-icon');
 const likeButtonArray = document.querySelectorAll('.card__like-button');
 const iconButtonArray = document.querySelectorAll('.card__icon-button');
 
-// Обработка нажатия на иконку сердца
 iconButtonArray.forEach((iconButton, index) => {
   iconButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -35,7 +21,6 @@ iconButtonArray.forEach((iconButton, index) => {
   });
 });
 
-// Обработка нажатия на кнопку Like
 likeButtonArray.forEach((button, index) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
@@ -44,7 +29,6 @@ likeButtonArray.forEach((button, index) => {
   });
 });
 
-// Переключение состояния лайка
 function toggleIsLiked(heart, button) {
   if (!heart || !button) return;
 
@@ -52,7 +36,6 @@ function toggleIsLiked(heart, button) {
   setButtonText(heart, button);
 }
 
-// Изменение текста кнопки
 function setButtonText(heart, button) {
   const textElement = button.querySelector('.button__text');
 
