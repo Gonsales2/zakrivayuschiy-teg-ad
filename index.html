@@ -229,12 +229,16 @@
           </button>
         </div>
       </article>
-      <button class="save-button button" type="button" id="save-button">
-        <img class="save-icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
-        <span class="button__text">Сохранить на память</span>
-      </button>
+
+      <footer class="footer">
+        <button class="button save-button" type="button" id="save-button">
+          <img class="save-icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+          <span class="button__text">Сохранить на память</span>
+        </button>
+      </footer>
+
       <dialog class="dialog" id="memory-dialog" aria-labelledby="dialog-title">
-        <img class="dialog__icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+        <img class="save-icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
 
         <p class="dialog__title" id="dialog-title">
           Вставьте дискету, чтобы продолжить
@@ -246,7 +250,6 @@
           </button>
         </form>
       </dialog>
-
     </main>
     <script src="./scripts/like.js"></script>
     <script src="./scripts/dialog.js"></script>
