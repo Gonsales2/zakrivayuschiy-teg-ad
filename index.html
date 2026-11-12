@@ -231,24 +231,40 @@
       </article>
 
       <footer class="footer">
-        <button class="button save-button" type="button" id="save-button" onclick="window['popup-id'].showModal()" aria-controls="popup-id">
-          <img class="save-icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+        <button
+          class="button save-button"
+          type="button"
+          id="save-button"
+        >
+          <img
+            class="save-icon"
+            src="./svg/floppy.svg"
+            alt=""
+            aria-hidden="true"
+          >
           <span class="button__text">Сохранить на память</span>
         </button>
       </footer>
 
       <dialog class="dialog" id="memory-dialog" aria-labelledby="dialog-title">
-        <img class="dialog__icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+        <img
+          class="dialog__icon"
+          src="./svg/floppy.svg"
+          alt=""
+          aria-hidden="true"
+        >
 
         <p class="dialog__title" id="dialog-title">
           Вставьте дискету, чтобы продолжить
         </p>
 
-        <form method="dialog" class="button-form">
-          <button class="dialog__button button" type="submit" onclick="window['popup-id'].close()" aria-controls="popup-id>
-            <span class="button__text">ОК</span>
-          </button>
-        </form>
+        <button
+          class="dialog__button button"
+          id="close-dialog"
+          type="button"
+        >
+          <span class="button__text">ОК</span>
+        </button>
       </dialog>
 
     </main>
