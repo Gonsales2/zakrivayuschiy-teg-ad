@@ -1,41 +1,66 @@
-/* этот скрипт использует такие имена классов:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-Если эти классы поменять в HTML, скрипт перестанет работать. Будьте аккуратны.
-*/
+// Элементы диалога
+const popup = document.getElementById('memory-dialog');
+const openButton = document.getElementById('save-button');
+const closeButton = document.getElementById('close-dialog');
 
+// Открытие диалога
+if (openButton && popup) {
+  openButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    popup.showModal();
+  });
+}
+
+// Закрытие диалога
+if (closeButton && popup) {
+  closeButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    popup.close();
+  });
+}
+
+// Элементы лайков
 const likeHeartArray = document.querySelectorAll('.like-icon');
 const likeButtonArray = document.querySelectorAll('.card__like-button');
 const iconButtonArray = document.querySelectorAll('.card__icon-button');
 
+// Обработка нажатия на иконку сердца
 iconButtonArray.forEach((iconButton, index) => {
-  iconButton.onclick = () =>
+  iconButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     toggleIsLiked(likeHeartArray[index], likeButtonArray[index]);
+  });
 });
 
+// Обработка нажатия на кнопку Like
 likeButtonArray.forEach((button, index) => {
-  button.onclick = () => toggleIsLiked(likeHeartArray[index], button);
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleIsLiked(likeHeartArray[index], button);
+  });
 });
 
+// Переключение состояния лайка
 function toggleIsLiked(heart, button) {
+  if (!heart || !button) return;
+
   heart.classList.toggle('is-liked');
   setButtonText(heart, button);
 }
 
+// Изменение текста кнопки
 function setButtonText(heart, button) {
-  if ([...heart.classList].includes('is-liked')) {
-    setTimeout(
-      () => (button.querySelector('.button__text').textContent = 'Unlike'),
-      500
-    );
-  } else {
-    setTimeout(
-      () => (button.querySelector('.button__text').textContent = 'Like'),
-      500
-    );
-  }
+  const textElement = button.querySelector('.button__text');
+
+  if (!textElement) return;
+
+  setTimeout(() => {
+    textElement.textContent = heart.classList.contains('is-liked')
+      ? 'Unlike'
+      : 'Like';
+  }, 500);
 }
