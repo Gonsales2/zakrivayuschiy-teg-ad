@@ -17,5 +17,6 @@ jobs:
         run: exit 1
         if: ${{github.event.repository.private}}
       - name: Tests
-        run: echo ""
-
+        uses: Yandex-Practicum/test-project-action@v1
+        with:
+          project: 'zakrivayuschiy-teg-f'
