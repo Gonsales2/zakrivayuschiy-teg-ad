@@ -230,46 +230,25 @@
         </div>
       </article>
 
-      <button
-        class="button__popup-open button"
-        type="button"
-        onclick="window['popup-id'].showModal()"
-        aria-controls="popup-id"
-      >
-        <svg
-          width="21"
-          height="21"
-          viewBox="0 0 40 40"
-          class="icon-floppy"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use href="svg/floppy.svg#floppy"></use>
-        </svg>
-        <span class="button__text">Сохранить на память</span>
-      </button>
-      <dialog id="popup-id" class="popup">
-        <div class="popup__text-open">
-          <svg
-            class="floppy"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <use href="svg/floppy.svg#floppy"></use>
-          </svg>
-          <p class="text__popup">Вставьте дискету, чтобы продолжить</p>
-        </div>
-        <button
-          class="button__popup-close button"
-          type="button"
-          onclick="window['popup-id'].close()"
-          aria-controls="popup-id"
-        >
-          <span class="button__text">ок</span>
+      <footer class="footer">
+        <button class="button save-button" type="button" id="save-button" onclick="window['popup-id'].showModal()" aria-controls="popup-id">
+          <img class="save-icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+          <span class="button__text">Сохранить на память</span>
         </button>
+      </footer>
+
+      <dialog class="dialog" id="memory-dialog" aria-labelledby="dialog-title">
+        <img class="dialog__icon" src="./svg/floppy.svg" alt="" aria-hidden="true">
+
+        <p class="dialog__title" id="dialog-title">
+          Вставьте дискету, чтобы продолжить
+        </p>
+
+        <form method="dialog" class="button-form">
+          <button class="dialog__button button" type="submit" onclick="window['popup-id'].close()" aria-controls="popup-id>
+            <span class="button__text">ОК</span>
+          </button>
+        </form>
       </dialog>
 
     </main>

@@ -152,56 +152,18 @@
 }
 
 .button {
-  position: relative;
-  border: 2px solid var(--Themes-mainColor, #000000);
-  overflow: hidden;
-  font-family: var(--accent-font);
-  background-color: var(--Themes-background, #ffffff);
-  cursor: pointer;
-}
-.popup::backdrop {
-  opacity: 0.75;
-  background-color: var(--Themes-mainColor, #000000);
-}
-
-.popup[open] {
-  display: flex;
-}
-
-.popup {
-  flex-direction: column;
-  gap: 30px;
-  padding: 30px 27px;
-  inline-size: clamp(21.313rem, 21.098rem + 1.071vi, 22.063rem);
-}
-
-.popup__text-open {
-  display: flex;
+  padding: 0;
+  background-color: transparent;
+  border: var(--border);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+  display: grid;
   align-items: center;
-  gap: 20px;
-}
-
-.floppy {
-  flex-shrink: 0;
-}
-
-.icon-floppy {
-  color: var(--Themes-background, #ffffff);
-  mix-blend-mode: difference;
-}
-
-.text__popup {
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  text-transform: uppercase;
-}
-
-.button__popup-close {
-  padding: 10px 0;
-  font-size: 14px;
-  text-transform: uppercase;
+  justify-items: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 .button::before {
@@ -360,17 +322,7 @@
   width: 100%;
   height: 38px;
   border-radius: 0;
-}
-
-.button__popup-open {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  padding: 14px 20px;
-  font-size: 14px;
-  line-height: 12.6px;
+  font-family: var(--accent-font);
 }
 
 .card:nth-child(2) .card__image {
